@@ -11,8 +11,6 @@ export default class SignUpForm extends Component {
     error: ''
   };
 
-  console.log("hello");
-
   handleSubmit = async (evt) => {
     evt.preventDefault();
     try {
