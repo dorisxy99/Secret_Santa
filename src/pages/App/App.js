@@ -3,8 +3,8 @@ import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import { getUser } from '../../utilities/users-service';
 import AuthPage from '../AuthPage/AuthPage';
-import NewOrderPage from '../MyWishes/MyWishes';
-import OrderHistoryPage from '../Wishes/Wishes';
+import Wishes from '../Wishes/Wishes';
+import MyWishes from '../MyWishes/MyWishes';
 import NavBar from '../../components/NavBar/NavBar';
 
 export default function App() {

@@ -12,7 +12,7 @@ export default function NavBar(props) {
 
   return (
     <>
-    <h1>Secret Santa</hi>
+    <h1>Secret Santa</h1>
     <nav>
       <Link to="/home">Home</Link>
       &nbsp; | &nbsp;
