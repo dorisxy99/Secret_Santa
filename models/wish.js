@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const wishSchema = new Schema ({
     name: String,
     description: String,
-    price: Number,
+    URL: String,
     user: {type: Schema.Types.ObjectId, ref: 'User'},
 })
 
