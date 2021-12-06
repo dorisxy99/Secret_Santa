@@ -1,64 +1,55 @@
-import React, { Component } from 'react';
-import { signUp } from '../../utilities/users-service';
+import { useState } from 'react';
+import * as usersService from '../../utilities/users-service';
 
-export default class SignUpForm extends Component {
-  // class field syntax
-  state = {
-    name: '',
-    email: '',
-    password: '',
-    confirm: '',
-    error: ''
-  };
+export default function SignUpForm({ setUser }) {
+  const [credentials, setCredentials] = useState();
+  const [error, setError] = useState('');
 
-  handleSubmit = async (evt) => {
+  async function handleSubmit(evt) {
+
     evt.preventDefault();
-    try {
-      // We don't want to send the confirm or error properties
-      // Let's make a copy of this.state (we never want to directly modify the state obj)
-      const formData = {...this.state};
-      delete formData.error;
-      delete formData.confirm;
-      const user = await signUp(formData);
-      this.props.setUser(user);
-    } catch {
-      // An error occurred
-      this.setState({error: 'Sign Up Failed - Try Again'});
+    console.log(evt.target.name.value)
+    console.log(evt.target.email.value)
+    console.log(evt.target.password.value)
+
+    let credentials = {
+      name: evt.target.name.value,
+      email: evt.target.email.value,
+      password: evt.target.password.value
     }
-  };
 
-  handleChange = (evt) => {
-    // Unlike setters in function components,
-    // this.setState MERGES the provided object, it does
-    // NOT replace it
-    this.setState({
-      [evt.target.name]: evt.target.value,
-      error: ''
-    });
-  };
-
-  // Must override the render method
-  // The render method take the place of a function component
-  // That is, it will ultimately return its UI as JSX
-  render() {
-    const disable = this.state.password !== this.state.confirm;
-    return (
-      <div>
-        <div className="form-container">
-          <form autoComplete="off" onSubmit={this.handleSubmit}>
-            <label>Name</label>
-            <input type="text" name="name" value={this.state.name} onChange={this.handleChange} required />
-            <label>Email</label>
-            <input type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
-            <label>Password</label>
-            <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
-            <label>Confirm</label>
-            <input type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required />
-            <button type="submit" disabled={disable}>SIGN UP</button>
-          </form>
-        </div>
-        <p className="error-message">&nbsp;{this.state.error}</p>
-      </div>
-    );
+    try {
+      // The promise returned by the signUp service method 
+      // will resolve to the user object included in the
+      // payload of the JSON Web Token (JWT)
+      const user = await usersService.signUp(credentials);
+      console.log(user);
+      setUser(user);
+    } catch (err) {
+      console.log(err);
+      setError('Log In Failed - Try Again');
+    }
   }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <img class="mb-4" src="https://getbootstrap.com/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57" />
+      <h1 class="h3 mb-3 fw-normal">Create your account</h1>
+      <div class="form-floating">
+        <input type="text" name="name" class="form-control" id="floatingInput" placeholder="John" required />
+        <label for="floatingInput">Your name</label>
+      </div>
+      <div class="form-floating">
+        <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com" required />
+        <label for="floatingInput">Email address</label>
+      </div>
+      <div class="form-floating">
+        <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password" required />
+        <label for="floatingPassword">Password</label>
+      </div>
+
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Create account</button>
+      <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
+    </form>
+  );
 }

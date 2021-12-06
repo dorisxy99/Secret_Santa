@@ -2,43 +2,46 @@ import { useState } from 'react';
 import * as usersService from '../../utilities/users-service';
 
 export default function LoginForm({ setUser }) {
-  const [credentials, setCredentials] = useState({
-    email: '',
-    password: ''
-  });
+  const [credentials, setCredentials] = useState();
   const [error, setError] = useState('');
 
-  function handleChange(evt) {
-    setCredentials({ ...credentials, [evt.target.name]: evt.target.value });
-    setError('');
-  }
-
   async function handleSubmit(evt) {
-    // Prevent form from being submitted to the server
+
     evt.preventDefault();
+    console.log(evt.target.email.value)
+    console.log(evt.target.password.value)
+    let credentials = {
+      email: evt.target.email.value,
+      password: evt.target.password.value
+    }
     try {
       // The promise returned by the signUp service method 
       // will resolve to the user object included in the
       // payload of the JSON Web Token (JWT)
       const user = await usersService.login(credentials);
+      console.log(user);
       setUser(user);
-    } catch {
+    } catch(err) {
+      console.log(err);
       setError('Log In Failed - Try Again');
     }
   }
 
   return (
-    <div>
-      <div className="form-container" onSubmit={handleSubmit}>
-        <form autoComplete="off" >
-          <label>Email</label>
-          <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
-          <label>Password</label>
-          <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
-          <button type="submit">LOG IN</button>
-        </form>
+    <form onSubmit={handleSubmit}>
+      <img class="mb-4" src="https://getbootstrap.com/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57" />
+      <h1 class="h3 mb-3 fw-normal">Log In Here!</h1>
+      <div class="form-floating">
+        <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com" required />
+        <label for="floatingInput">Email address</label>
       </div>
-      <p className="error-message">&nbsp;{error}</p>
-    </div>
+      <div class="form-floating">
+        <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password" required/>
+        <label for="floatingPassword">Password</label>
+      </div>
+
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Log In</button>
+      <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
+    </form>
   );
 }

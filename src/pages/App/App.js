@@ -10,8 +10,9 @@ import NavBar from '../../components/NavBar/NavBar';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
+  const [wishes, setWishes] = useState([]);
   return (
-    <main className="App">
+    <main className="app-cont">
       { user ?
         <>
           <NavBar user={user} setUser={setUser} />

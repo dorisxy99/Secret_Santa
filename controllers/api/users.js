@@ -36,9 +36,9 @@ async function create(req, res) {
     console.log(user);
     console.log(token);
 
-
     res.json(token);
   } catch (e) {
+    console.log(e);
     res.status(400).json(e);
   }
 }
