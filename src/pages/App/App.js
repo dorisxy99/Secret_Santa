@@ -5,6 +5,7 @@ import { getUser } from '../../utilities/users-service';
 import AuthPage from '../AuthPage/AuthPage';
 import Wishes from '../Wishes/Wishes';
 import MyWishes from '../MyWishes/MyWishes';
+import Create from '../Create/Create';
 import NavBar from '../../components/NavBar/NavBar';
 
 export default function App() {
@@ -18,6 +19,7 @@ export default function App() {
             {/* client-side route that renders the component instance if the path matches the url in the address bar */}
             <Route path="/wishes/mywishes" element={<MyWishes />} />
             <Route path="/wishes" element={<Wishes />} />
+            <Route path="/create/create" element={<Create />} />
           </Routes>
         </>
         :

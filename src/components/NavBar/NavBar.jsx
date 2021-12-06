@@ -14,11 +14,15 @@ export default function NavBar(props) {
     <>
     <h1>Secret Santa</h1>
     <nav>
-      <Link to="/home">Home</Link>
+      <Link to="/">Home</Link>
       &nbsp; | &nbsp;
-      <Link to="/wishes/mywishes">My Wishes</Link>
+      <Link to="/search">Search</Link>
       &nbsp; | &nbsp;
-      <span>Welcome, {props.user.name}</span>
+      <Link to="/mywishes">My Wishes</Link>
+      &nbsp; | &nbsp;
+      <Link to="/create">Create</Link>
+      &nbsp; | &nbsp;
+      <span>Welcome, collect and share what you like {props.user.name}</span>
       &nbsp; | &nbsp;
       <Link to="" onClick={handleLogOut}>Log Out</Link>
     </nav>
