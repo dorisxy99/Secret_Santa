@@ -1,19 +1,13 @@
 import React from 'react';
-import { useState } from 'react';
-import { checkToken } from '../../utilities/users-service';
+import WishCard from '../../components/WishCard/WishCard';
 
 
-export default function Wishes() {
-
-  async function handleCheckToken() {
-    const expDate = await checkToken();
-    console.log(expDate);
-  }
+export default function Wishes({wishes}) {
+  const wish = wishes.map(w => <WishCard wish={w}/>)
 
   return (
     <>
-      <h1>Wishes</h1>
-      <button onClick={handleCheckToken}>Check When My Login Expires</button>
+      <h1>{wish}</h1>
     </>
   );
 }

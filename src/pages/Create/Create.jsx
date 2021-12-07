@@ -6,34 +6,34 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-export default function Create() {
+export default function Create({addWish, user}) {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     description: '',
-    pictures:'',
-    URL:'',
+    // pictures:'',
+    URL: '',
+    user: user._id,
   });
 
 async function handleChange(evt) {
-  let newFormData = {};
-  if (evt.target.files) {
-    newFormData = {...formData, URL: Buffer.from(evt.target.files[0]).toString('base64')};
-  } else{
-      newFormData = {...formData, [evt.target.name]:evt.target.value};
-    }
+  let newFormData = {...formData, [evt.target.name]: evt.target.value};
+  // if (evt.target.files) {
+  //   newFormData = {...formData, URL: Buffer.from(evt.target.files[0]).toString('base64')};
+  // } else{
+    //   newFormData = {...formData, [evt.target.name]:evt.target.value};
+    // }
+
     setFormData(newFormData);
 }
 
 
 
-async function handleSubmmit(evt) {
+async function handleSubmit(evt) {
   evt.preventDefault();
-  await createWish(formData);
+  addWish(formData);
   console.log(formData);
   navigate('/');
-  // const results = await coffeeAPI.create();
-  // addNewDrink()
 }
 
   return (
@@ -70,7 +70,7 @@ async function handleSubmmit(evt) {
       <br/>
       <button 
       type="submit" 
-      onClick={handleSubmmit}>Save your wish</button>
+      onClick={handleSubmit}>Save your wish</button>
     </form>
     </div>
   );

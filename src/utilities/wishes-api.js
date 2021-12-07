@@ -3,10 +3,10 @@ import {sendRequest} from './users-api';
 const baseURL = "/api/wishes";
 
 export async function createWish(data) {
-    return await sendRequest(baseURL, "POST", data)
+    return await sendRequest(`${baseURL}/create`, "POST", data)
 }
 
-export async function allWishes() {
+export async function getAll() {
     return await sendRequest(baseURL)
 }
 

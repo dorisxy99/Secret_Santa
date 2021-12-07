@@ -1,5 +1,6 @@
 const Wish = require('../../models/wish');
 
+
 module.exports = {
   create,
   deleteWish,
@@ -8,9 +9,14 @@ module.exports = {
   show
 };
 
+async function getAll() {
+    const wishes = await Wish.find({});
+    res.json(wishes);
+}
+
 async function create(req,res) {
-  const wish = new Wish(req.body);
-  await wish.save();
+  const wish = await Wish(req.body);
+  wish.save();
   console.log(wish);
   res.json(wish);
 }

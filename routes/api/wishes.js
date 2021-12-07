@@ -3,10 +3,10 @@ const router = express.Router();
 const wishesCtrl = require('../../controllers/api/wishes');
 
 // GET to /api/wishes/search
-router.get('/search', wishesCtrl.search);
+router.get('/', wishesCtrl.getAll);
 
 //POST to /api/wishes/:id
-router.post('/', wishesCtrl.create);
+router.post('/create', wishesCtrl.create);
 
 
 module.exports = router; 
