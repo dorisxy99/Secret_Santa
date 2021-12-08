@@ -20,11 +20,11 @@ export default function WishCard({wish, user, deleteWishes, updateWishes}) {
 
   return (
     <div style={{border:"1px solid grey"}}>
-    {showForm && <Create wish={wish} user={user} updateWishes={updateWishes} />}
+    {showForm && <Create wish={wish} user={user} updateWishes={updateWishes} setShowForm={setShowForm} />}
         {!showForm && <div>
-        <p>{wish.name}</p>
+        <p>{wish.name} ({wish.userName})</p>
         <p>{wish.description}</p>
-        <a href={wish.URL} target="_blank">Link to the wish!</a>
+        {wish.URL && <a href={wish.URL} target="_blank">Link to the wish!</a>}
         <button onClick={() => handleDelete(wish._id)}> delete your wish </button>
         <button onClick={() => handleUpdate()}> update your wish </button>
         </div>}
