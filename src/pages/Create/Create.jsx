@@ -6,9 +6,9 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-export default function Create({addWish, user}) {
+export default function Create({wish, addWish, user, updateWishes}) {
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState(wish ? wish : {
     name: '',
     description: '',
     // pictures:'',
@@ -31,14 +31,18 @@ async function handleChange(evt) {
 
 async function handleSubmit(evt) {
   evt.preventDefault();
-  addWish(formData);
+  if (wish) {
+    updateWishes(wish);
+  } else {
+    addWish(formData);
+  }
   console.log(formData);
-  navigate('/');
+  // navigate('/');
 }
 
   return (
     <div>
-    <form action="submit">
+    <form onSubmit={handleSubmit}>
 
       <label>Name</label>
         <input 
@@ -70,7 +74,7 @@ async function handleSubmit(evt) {
       <br/>
       <button 
       type="submit" 
-      onClick={handleSubmit}>Save your wish</button>
+      >Save your wish</button>
     </form>
     </div>
   );

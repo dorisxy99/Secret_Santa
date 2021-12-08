@@ -22,16 +22,13 @@ async function create(req,res) {
 }
 
 async function deleteWish(req,res) {
-   await Wish.findByIdAndDelete(req.params.id);
-  //  await Wish.deleteOne(req.body._id);
-  // res.json(wish);
-  // console.log(Wish.find({}));
-  res.json({message: "Wish deleted"});
+    const wish = await Wish.findByIdAndDelete(req.params.id);
+    res.json(wish);
 }
 
 
 async function updateWish(req,res) {
-  const updatedWish = await Wish.findByIdAndUpdate(req.body, req.body.id);
+  const updatedWish = await Wish.findByIdAndUpdate(req.params.id, req.body, {new:true});
   res.json(updatedWish);
 }
 

@@ -14,11 +14,11 @@ export async function myWishes() {
     return await sendRequest(`${baseURL}/my`)
 }
 
-export async function updateWish(data) {
-    return await sendRequest(baseURL, "PUT", data)
+export async function updateWish(wish) {
+    console.log('API', wish)
+    return await sendRequest(`${baseURL}/${wish._id}`, "PUT", wish)
 }
 
-export async function deleteWish() {
-    return await sendRequest(baseURL, "DELETE")
+export function deleteWish(id) {
+    return sendRequest(`${baseURL}/${id}`, 'DELETE');
 }
-
