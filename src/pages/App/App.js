@@ -58,9 +58,9 @@ export default function App() {
           <Routes>
             {/* client-side route that renders the component instance if the path matches the url in the address bar */}
             <Route path="/mywishes" element={<MyWishes wishes={wishes} user={user} deleteWishes={deleteWishes} updateWishes={updateWishes} />} />
-            <Route path="/" element={<Wishes wishes={wishes} user={user} deleteWishes={deleteWishes} updateWishes={updateWishes}/>} />
+            <Route path="/" element={<Wishes wishes={wishes} user={user} deleteWishes={deleteWishes} updateWishes={updateWishes} />} />
             <Route path="/create" element={<Create addWish={addWish} user={user} updateWishes={updateWishes} />} />
-            <Route path="/:id" element={<WishCard addWish={addWish} user={user} updateWishes={updateWishes} deleteWishes={deleteWishes} />} />
+            {/* <Route path="/:id" element={<WishCard addWish={addWish} user={user} updateWishes={updateWishes} deleteWishes={deleteWishes} />} /> */}
           </Routes>
         </>
         :

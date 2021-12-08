@@ -1,7 +1,6 @@
 import React from 'react';
 // import { checkToken } from '../../utilities/users-service';
 import { useState } from 'react';
-import { createWish } from '../../utilities/wishes-api';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -14,6 +13,7 @@ export default function Create({wish, addWish, user, updateWishes}) {
     // pictures:'',
     URL: '',
     user: user._id,
+
   });
 
 async function handleChange(evt) {
@@ -32,12 +32,12 @@ async function handleChange(evt) {
 async function handleSubmit(evt) {
   evt.preventDefault();
   if (wish) {
-    updateWishes(wish);
+    updateWishes(formData);
   } else {
     addWish(formData);
   }
   console.log(formData);
-  // navigate('/');
+  navigate('/');
 }
 
   return (
