@@ -60,7 +60,6 @@ export default function App() {
             <Route path="/mywishes" element={<MyWishes wishes={wishes} user={user} deleteWishes={deleteWishes} updateWishes={updateWishes} />} />
             <Route path="/" element={<Wishes wishes={wishes} user={user} deleteWishes={deleteWishes} updateWishes={updateWishes} />} />
             <Route path="/create" element={<Create addWish={addWish} user={user} updateWishes={updateWishes} />} />
-            {/* <Route path="/:id" element={<WishCard addWish={addWish} user={user} updateWishes={updateWishes} deleteWishes={deleteWishes} />} /> */}
           </Routes>
         </>
         :

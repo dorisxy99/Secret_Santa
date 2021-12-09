@@ -8,7 +8,11 @@ export default function Wishes({user, wishes, deleteWishes, updateWishes}) {
 
   return (
     <>
-      <h1>{wish}</h1>
+    <div className="container">
+      <div className="row align-items-center">
+        {wish}
+      </div>
+    </div>
     </>
   );
 }

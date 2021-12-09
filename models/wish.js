@@ -5,8 +5,11 @@ const wishSchema = new Schema ({
     name: String,
     description: String,
     URL: String,
+    imageURL: String,
     user: {type: Schema.Types.ObjectId, ref: 'User'},
-    userName: String,
+    userName: String
+}, {
+    timestamps: true
 })
 
 module.exports = mongoose.model('Wish', wishSchema); 

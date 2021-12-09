@@ -15,7 +15,7 @@ export default function NavBar(props) {
       <header class="p-3 mb-3 border-bottom">
         <div class="container">
           <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-          <h1>Secret Santa</h1>
+          <img src="/logo-santa.svg" style={{width: "240px"}} alt="" />
             <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
               <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"></svg>
             </a>
@@ -26,27 +26,12 @@ export default function NavBar(props) {
               <li><a href="/create" class="nav-link px-2 link-dark">Create</a></li>
               <li><a href="" onClick={handleLogOut} class="nav-link px-2 link-dark">Log Out</a></li>
             </ul>
-{/* 
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-              <input type="search" class="form-control" placeholder="Search..." aria-label="Search" />
-            </form> */}
           </div>
+          <div>
+          </div>
+          <span> 👋 Hi {props.user.name}. Collect and share what your wishlist.</span>
         </div>
       </header>
-      <span>Welcome, collect and share what you like {props.user.name}</span>
-    {/* <nav>
-      <Link to="/">Home</Link>
-      &nbsp; | &nbsp;
-      <Link to="/search">Search</Link>
-      &nbsp; | &nbsp;
-      <Link to="/mywishes">My Wishes</Link>
-      &nbsp; | &nbsp;
-      <Link to="/create">Create</Link>
-      &nbsp; | &nbsp;
-      <span>Welcome, collect and share what you like {props.user.name}</span>
-      &nbsp; | &nbsp;
-      <Link to="" onClick={handleLogOut}>Log Out</Link>
-    </nav> */}
     </>
   );
 }

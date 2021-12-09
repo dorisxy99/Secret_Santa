@@ -33,7 +33,7 @@ export default function SignUpForm({ setUser }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <img class="mb-4" src="https://getbootstrap.com/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57" />
+      <img class="mb-4" src="https://i.imgur.com/9Fe5MIX.png" alt="" width="72" height="57" />
       <h1 class="h3 mb-3 fw-normal">Create your account</h1>
       <div class="form-floating">
         <input type="text" name="name" class="form-control" id="floatingInput" placeholder="John" required />

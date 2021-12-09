@@ -46,4 +46,10 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-
+.card {
+  margin-bottom: 25px;
+}
+.card img {
+  height: 450px;
+  object-fit: cover;
+}

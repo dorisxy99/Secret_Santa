@@ -10,10 +10,6 @@ module.exports = {
     show
 };
 
-async function getAll() {
-    const wishes = await Wish.find({});
-    res.json(wishes);
-}
 
 async function create(req, res) {
     req.body.user = req.user._id;
@@ -35,7 +31,7 @@ async function updateWish(req, res) {
 
 
 async function getAll(req, res) {
-    const wishes = await Wish.find({});
+    const wishes = await Wish.find({}).sort({'createdAt': -1});
     // re-sort based upon the sortOrder of the categories
     console.log(wishes);
     res.json(wishes);
