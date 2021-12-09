@@ -2,6 +2,16 @@
 
 Secret Santa is a website that allows users to search for wishes, edit, remove and go to website of the wishes. Visitors can also write full details, and visitors are only not able to create and edit wishes. 
 
+## Technologies Used
+* HTML
+* CSS
+* React
+* Javascript
+* Nodejs
+* Express
+* MongoDB
+* Heroku
+
 ##
 ## Home Page
 ![Home](https://i.imgur.com/wKDnG9S.png)
@@ -14,15 +24,6 @@ Secret Santa is a website that allows users to search for wishes, edit, remove a
 ## Login / Sign up
 ![Log In](https://i.imgur.com/N4b8NrJ.png)
 
-## Technologies Used
-* HTML
-* CSS
-* React
-* Javascript
-* Nodejs
-* Express
-* MongoDB
-* Heroku
 
 ## Getting Started
 

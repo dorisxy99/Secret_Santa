@@ -31,8 +31,8 @@ async function updateWish(req, res) {
 
 
 async function getAll(req, res) {
-    const wishes = await Wish.find({}).sort({'createdAt': -1});
     // re-sort based upon the sortOrder of the categories
+    const wishes = await Wish.find({}).sort({'createdAt': -1});
     console.log(wishes);
     res.json(wishes);
 
