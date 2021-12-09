@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../Create/Create.css';
 
 export default function Create({ wish, addWish, user, updateWishes, setShowForm }) {
   const navigate = useNavigate();

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Create from '../../pages/Create/Create';
-import Moment from 'moment'
+import Moment from 'moment';
 
 
 
