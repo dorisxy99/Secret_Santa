@@ -29,7 +29,7 @@ export default function LoginForm({ setUser }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <img class="mb-4" src="https://i.imgur.com/9Fe5MIX.png" alt="" width="72" height="57" />
+      <img src="/logo-santa.svg" style={{width: "240px", marginBottom: "20px" }} alt="" />
       <h1 class="h3 mb-3 fw-normal">Log In Here!</h1>
       <div class="form-floating">
         <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com" required />

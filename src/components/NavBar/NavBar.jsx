@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import * as usersService from '../../utilities/users-service';
-import './NavBar.css';
 
 export default function NavBar(props) {
 
@@ -15,7 +14,7 @@ export default function NavBar(props) {
       <header class="p-3 mb-3 border-bottom">
         <div class="container">
           <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-          <img src="/logo-santa.svg" style={{width: "240px"}} alt="" />
+          <img src="/logo-santa.svg" style={{width: "240px", marginBottom: "20px"}} alt="" />
             <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
               <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"></svg>
             </a>
