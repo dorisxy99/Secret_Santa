@@ -1,5 +1,8 @@
-## What is this website?
+## What is this?
+
 Secret Santa is a website that allows users to search for wishes, edit, remove and go to website of the wishes. Visitors can also write full details, and visitors are only not able to create and edit wishes. 
+
+##
 
 ![Home](https://i.imgur.com/wKDnG9S.png)
 ![My Wish](https://i.imgur.com/YXsK9IT.png)
