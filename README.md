@@ -33,3 +33,4 @@ Secret Santa is a website that allows users to search for wishes, edit, remove a
 ## Next Steps:
 - Allow users to rate and review wishes.
 - Filter wishes by rating. 
+- Enable buy and sell functionalities.
